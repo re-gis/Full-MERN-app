@@ -1,0 +1,21 @@
+{
+  "name": "new-mearn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "author": "Regis",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.4",
+    "nodemon": "^2.0.20"
+  }
+}
