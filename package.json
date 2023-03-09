@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Regis",
   "license": "ISC",
@@ -19,5 +20,8 @@
     "mongoose": "^6.8.4",
     "nodemon": "^2.0.20",
     "react-icons": "^4.8.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

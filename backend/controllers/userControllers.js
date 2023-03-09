@@ -12,7 +12,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (!name || !email || !password) {
     res.status(400);
-    throw new Error("Please add all credentials!");
+    throw new Error("Please add all credentials...");
   }
 
   //Check if the user already exists using the email
@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const userExists = await User.findOne({ email });
   if (userExists) {
     res.status(400);
-    throw new Error("User already exists!");
+    throw new Error("User already exists...");
   }
   // If the user doesn't exist we have to hash the password
 
@@ -44,7 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid credentials!");
+    throw new Error("Invalid credentials...");
   }
 });
 
@@ -66,7 +66,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("User credentials not matching!");
+    throw new Error("User credentials not matching...");
   }
 });
 
@@ -91,7 +91,7 @@ const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
   if (!users) {
     res.status(400);
-    throw new Error("No users available!");
+    throw new Error("No users available...");
   }
 
   res.status(200).json({
