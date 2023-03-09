@@ -75,12 +75,7 @@ const loginUser = asyncHandler(async (req, res) => {
 //@Access Private
 
 const getMe = asyncHandler(async (req, res) => {
-  const { _id, name, email } = await User.findById(req.user.id);
-  res.status(200).json({
-    id: _id,
-    name,
-    email,
-  });
+  res.status(200).json(req.user);
 });
 
 //@Desc Get logged in users
@@ -92,11 +87,15 @@ const getUsers = asyncHandler(async (req, res) => {
   if (!users) {
     res.status(400);
     throw new Error("No users available...");
+  } else {
+    users.map((user) => { 
+      res.status(200).json({
+        user
+      });
+    })
   }
 
-  res.status(200).json({
-    name: req.params.id,
-  });
+  
 });
 
 //Generate JWT
